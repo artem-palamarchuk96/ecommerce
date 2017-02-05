@@ -1,29 +1,40 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AppComponent, SubcategoryComponent, ProductComponent } from './index';
+import { CategoryComponent, SubcategoryComponent, ProductComponent, InfoProductComponent, AdminComponent } from './index';
 
 
 
 const routes:Routes = [
     {
         path: '',
-        redirectTo: 'category',
+        redirectTo: 'shop',
         pathMatch: 'full'
     },
     {
-        path: 'category',
-        component: AppComponent
-    },
-    {
-        path: 'category/:name',
-        component: SubcategoryComponent,
+        path: 'shop',
+        component: CategoryComponent,
         children: [
             {
-                path: ':subname',
-                component: ProductComponent
+                path: 'category/:name',
+                component: SubcategoryComponent,
+                children: [
+                    {
+                        path: ':subname',
+                        component: ProductComponent
+                    }
+                ]
+            },
+            {
+                path: 'product/:articul',
+                component: InfoProductComponent
             }
         ]
+    },
+    {
+        path: 'admin',
+        component: AdminComponent
     }
+
 ];
 
 @NgModule({

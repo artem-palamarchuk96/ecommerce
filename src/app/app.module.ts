@@ -9,13 +9,17 @@ import {DataService} from "./services/data.service";
 import { SubcategoryComponent } from './subcategory/subcategory.component';
 import { ProductComponent } from './product/product.component';
 import { CategoryComponent } from './category/category.component';
+import { AdminComponent } from './admin/admin.component';
+import { InfoProductComponent } from './info-product/info-product.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SubcategoryComponent,
     ProductComponent,
-    CategoryComponent
+    CategoryComponent,
+    AdminComponent,
+    InfoProductComponent
   ],
   imports: [
     BrowserModule,

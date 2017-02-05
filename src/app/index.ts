@@ -8,8 +8,11 @@ export * from './services/data.service';
 
 /* Components */
 export * from './app.component';
+export * from './category/category.component';
 export * from './subcategory/subcategory.component';
-export * from './product/product.component'
+export * from './product/product.component';
+export * from './info-product/info-product.component';
+export * from './admin/admin.component';
 
 
 

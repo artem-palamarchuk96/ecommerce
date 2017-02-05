@@ -1,6 +1,10 @@
-<ul class="nav nav-tabs">
-  <li *ngFor = "let category of dataService.categories" role="presentation">
-    <a [routerLink] = "['category', category.name]" routerLinkActive="active" class="category-btn">{{category.name}}</a>
-  </li>
+<ul class="nav nav-pills main-nav">
+    <li>
+        <a [routerLink] = "['shop']">Магазин</a>
+    </li>
+    <li>
+        <a [routerLink] = "['admin']">Админка</a>
+    </li>
 </ul>
+
 <router-outlet></router-outlet>

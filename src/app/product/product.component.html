@@ -1,5 +1,7 @@
-<ul>
+<ul class="products-list">
     <li *ngFor="let product of products">
-        {{product.name}}
+        <a (click)="goToProductPage(product)">
+            {{product.name}}
+        </a>
     </li>
 </ul>

@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
     ) {};
 
     ngOnInit() {
-        this.router.navigate(['category', this.dataService.categories[0].name, this.dataService.subcategories[0].name]);
+        //this.router.navigate(['category', this.dataService.categories[0].name, this.dataService.subcategories[0].name]);
     }
 
 }

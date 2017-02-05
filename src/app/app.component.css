@@ -1,4 +1,9 @@
-.category-btn.active {
-    color: #fff;
-    background-color: #337ab7;
+.main-nav {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.main-nav > li {
+    width: 50%;
+    margin-left: 0;
 }

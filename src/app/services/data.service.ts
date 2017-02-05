@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router'
 import { Category, Subcategory, Product } from '../index';
 
 @Injectable()
 export class DataService {
 
-    constructor() {
+    constructor(private router: Router) {
     }
 
     categories:Category[] = [
@@ -55,5 +56,9 @@ export class DataService {
         }
     }
 
-
+    getProduct(articul: Number) {
+        if (articul) {
+            return this.products.find(elem => elem.articul == articul);
+        }
+    }
 }
