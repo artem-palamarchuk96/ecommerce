@@ -13,6 +13,7 @@ export * from './subcategory/subcategory.component';
 export * from './product/product.component';
 export * from './info-product/info-product.component';
 export * from './admin/admin.component';
+export * from './page-404/page-404.component';
 
 
 

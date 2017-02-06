@@ -1,0 +1,23 @@
+.subcategory-list, .filters-list {
+    border: 1px solid #e7e7e7;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+.subcategory-list > li:first-child, .filters-list > li:first-child {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    font-weight: 700;
+    background-color: #e7e7e7;
+}
+
+.filters-list {
+    padding: 0;
+}
+

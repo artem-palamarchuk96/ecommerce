@@ -7,3 +7,8 @@
     width: 50%;
     margin-left: 0;
 }
+
+.choose-user-list > li > a.active  {
+    color: #555;
+    background-color: #e7e7e7;
+}

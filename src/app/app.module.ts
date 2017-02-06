@@ -11,6 +11,7 @@ import { ProductComponent } from './product/product.component';
 import { CategoryComponent } from './category/category.component';
 import { AdminComponent } from './admin/admin.component';
 import { InfoProductComponent } from './info-product/info-product.component';
+import { Page404Component } from './page-404/page-404.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { InfoProductComponent } from './info-product/info-product.component';
     ProductComponent,
     CategoryComponent,
     AdminComponent,
-    InfoProductComponent
+    InfoProductComponent,
+    Page404Component
   ],
   imports: [
     BrowserModule,
