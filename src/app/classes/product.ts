@@ -1,10 +1,12 @@
 export class Product {
 
     constructor(
-        public _id: String,
-        public name: String,
-        public articul: Number,
-        public price: Number,
-        public subcategory: String
+        public _id: string,
+        public name: string,
+        public articul: number,
+        public price: number,
+        public subcategory: string,
+        public producer: string,
+        public imgSrc: string
     ) {}
 }

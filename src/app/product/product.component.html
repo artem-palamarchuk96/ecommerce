@@ -1,9 +1,13 @@
-<div class="products-list">
+<div class="col-xs-9 products-list">
+    <div *ngIf = "products.length == 0" class="col-xs-9">
+        <h1>There are no goods :(</h1>
+    </div>
+
     <div *ngFor="let product of products" class="col-xs-4 products-list_item">
-        <div class="products-list_item-inner">
+        <div *ngIf="!product.filtered" class="products-list_item-inner">
             <a (click)="goToProductPage(product)" class="products-list_link">
-                <img class="products-list_img" src="http://tehznatok.com/wp-content/uploads/2016/05/134.jpg" alt="">
-                {{product.name}}
+                <img class="products-list_img" src="{{product.imgSrc}}" alt="">
+                <p>{{product.name}}</p>
             </a>
             <div class="products-list_code">
                 Код:&nbsp;<span>{{product.articul}}</span>
@@ -11,7 +15,18 @@
             <div class="products-list_price">
                 <span>{{product.price}}</span>&nbsp;грн
             </div>
-            <a class="btn btn-primary products-list_buy-btn">Купить <i class="glyphicon glyphicon-shopping-cart"></i></a>
+            <a class="btn btn-primary products-list_buy-btn"><i class="glyphicon glyphicon-shopping-cart"></i></a>
         </div>
     </div>
+</div>
+<div class="col-xs-3" style="float: right;">
+    <ul class="filters-list">
+        <li>Фильтры</li>
+        <li class="filters-list_producers filters-list_producers-title">Производитель</li>
+        <li *ngFor = "let producer of dataService.producers" class="filters-list_producers">
+            <label>
+                <input type="radio" name="radioProducers" (change) = "lol(producer.name)">{{producer.name}}
+            </label>
+        </li>
+    </ul>
 </div>

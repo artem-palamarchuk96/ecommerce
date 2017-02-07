@@ -6,7 +6,11 @@
     margin-bottom: 15px;
 }
 
-.subcategory-list > li:first-child, .filters-list > li:first-child {
+.filters-list {
+    padding: 0;
+}
+
+.subcategory-list > li:first-child, .filters-list > li:first-child, .filters-list_producers {
     position: relative;
     display: block;
     padding: 10px 15px;
@@ -17,7 +21,17 @@
     background-color: #e7e7e7;
 }
 
-.filters-list {
-    padding: 0;
+.filters-list_producers, .filters-list_producers-title {
+    background-color: #fff;
 }
+
+.filters-list_producers-title {
+    border-bottom: 2px solid #e7e7e7;
+}
+
+.filters-list_producers label {
+    font-weight: 400;
+}
+
+
 

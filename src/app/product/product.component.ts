@@ -17,19 +17,42 @@ export class ProductComponent implements OnInit {
     ) {}
 
     products: Product[];
+    filtered: any;
+    val = false;
 
     ngOnInit() {
+       this.watchRoutes();
+
+    }
+
+    watchRoutes() {
         let that = this;
         this.activatedRoute.params.forEach(function(params: Params) {
+            //console.log('Product route = ', params['subname'])
             let subname = params['subname'];
             if (subname) {
                 that.products = that.dataService.getProductsBySubcategory(subname);
+                that.filtered = that.products;
+                that.products = that.products.map(elem => Object.assign(elem, {filter: false}));
+                //console.log(that.products.map(elem => Object.assign(elem, {filter: false})))
             }
         })
     }
 
     goToProductPage(product: Product) {
         this.router.navigate(['shop', 'product', product['articul']]);
+    }
+
+    filterProducts(producer: string) {
+        this.products = this.filtered.filter(elem => elem.producer == producer);
+        //console.log(this.filtered);
+        //this.products = this.dataService.producerFilter(producer);
+    }
+
+
+    lol(producer: string) {
+        let filteredArr = this.filtered.filter(elem => elem.producer == producer);
+        this.products = filteredArr;
     }
 
 }

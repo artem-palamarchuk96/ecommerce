@@ -12,6 +12,7 @@ import { CategoryComponent } from './category/category.component';
 import { AdminComponent } from './admin/admin.component';
 import { InfoProductComponent } from './info-product/info-product.component';
 import { Page404Component } from './page-404/page-404.component';
+import { SearchResultsComponent } from './search-results/search-results.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { Page404Component } from './page-404/page-404.component';
     CategoryComponent,
     AdminComponent,
     InfoProductComponent,
-    Page404Component
+    Page404Component,
+    SearchResultsComponent
   ],
   imports: [
     BrowserModule,

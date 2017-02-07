@@ -1,6 +1,6 @@
 <ul class="nav nav-pills category-list">
   <li *ngFor = "let category of dataService.categories" role="presentation">
-    <a [routerLink] = "['category', category.name]" routerLinkActive="active" class="category-btn">{{category.name}}</a>
+    <a [routerLink] = "['category', category.name, 'empty']" routerLinkActive="active" class="category-btn">{{category.name}}</a>
   </li>
 </ul>
 <router-outlet></router-outlet>

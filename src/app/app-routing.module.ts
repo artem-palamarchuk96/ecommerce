@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { CategoryComponent, SubcategoryComponent, ProductComponent, InfoProductComponent, AdminComponent, Page404Component } from './index';
+import { CategoryComponent, SubcategoryComponent, ProductComponent, InfoProductComponent, AdminComponent, Page404Component, SearchResultsComponent } from './index';
 
 
 
@@ -27,6 +27,10 @@ const routes:Routes = [
             {
                 path: 'product/:articul',
                 component: InfoProductComponent
+            },
+            {
+                path: 'search',
+                component: SearchResultsComponent
             }
         ]
     },

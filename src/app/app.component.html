@@ -36,9 +36,10 @@
             <!-- search -->
             <form class="navbar-form navbar-right">
                 <div class="form-group">
-                    <input type="search" class="form-control" placeholder="Search">
+                    <!-- TODO: сделать обработку на enter -->
+                    <input #search type="search" class="form-control" placeholder="Search" (blur) = "getSearchValue(search.value)" (keydown) = "getSearchValueEnter($event, search.value)">
                 </div>
-                <button type="submit" class="btn btn-default">Submit</button>
+                <button [routerLink] = "['shop', 'search']" [queryParams] = "{'productName': searchValue}" type="submit" class="btn btn-default">Submit</button>
             </form>
 
         </div>
