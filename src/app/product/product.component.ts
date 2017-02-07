@@ -18,14 +18,9 @@ export class ProductComponent implements OnInit {
 
     products: Product[];
     filtered: any;
-    val = false;
+
 
     ngOnInit() {
-       this.watchRoutes();
-
-    }
-
-    watchRoutes() {
         let that = this;
         this.activatedRoute.params.forEach(function(params: Params) {
             //console.log('Product route = ', params['subname'])
@@ -49,6 +44,25 @@ export class ProductComponent implements OnInit {
         //this.products = this.dataService.producerFilter(producer);
     }
 
+
+    addToCart(product: Product) {
+        if (!~this.dataService.cart.indexOf(product)) {
+            this.dataService.cart.push(Object.assign(product, {count: 1}) );
+        } else {
+            for (let i = 0; i < this.dataService.cart.length; i++) {
+                if (this.dataService.cart[i].articul == product.articul) {
+                    this.dataService.cart[i].count++;
+                }
+            }
+        }
+        this.dataService.cartCount = 0;
+        this.dataService.cartSummaryPrice = 0;
+        for (let i = 0; i < this.dataService.cart.length; i++) {
+            this.dataService.cartCount += this.dataService.cart[i].count;
+            this.dataService.cartSummaryPrice += this.dataService.cart[i].price;
+        }
+        //console.log(this.dataService.cart, this.dataService.cartCount);
+    }
 
     lol(producer: string) {
         let filteredArr = this.filtered.filter(elem => elem.producer == producer);

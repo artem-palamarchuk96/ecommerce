@@ -5,7 +5,7 @@
 <div *ngFor="let product of searchedProducts" class="col-xs-3 products-list_item">
     <div class="products-list_item-inner">
         <a (click)="goToProductPage(product)" class="products-list_link">
-            <img class="products-list_img" src="{{product.imgSrc}}" alt="">
+            <img class="products-list_img" [src]="product.imgSrc" alt="">
             <p>{{product.name}}</p>
         </a>
         <div class="products-list_code">

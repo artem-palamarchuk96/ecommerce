@@ -8,6 +8,7 @@ export class DataService {
     constructor(private router: Router) {
     }
 
+    /* TODO: добавить алиасы на англ для категорий и подкатегорий для нормального отображения в роуте */
     categories:Category[] = [
         new Category('1', 'Бытовая техника'),
         new Category('2', 'Техника для кухни'),
@@ -82,4 +83,12 @@ export class DataService {
             return this.products.filter(elem => elem.producer == producer);
         }
     }
+
+    /* Cart */
+    cart = [];
+
+    cartCount: number = 0;
+
+    cartSummaryPrice: number = 0;
+
 }

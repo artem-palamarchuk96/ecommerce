@@ -13,6 +13,7 @@ import { AdminComponent } from './admin/admin.component';
 import { InfoProductComponent } from './info-product/info-product.component';
 import { Page404Component } from './page-404/page-404.component';
 import { SearchResultsComponent } from './search-results/search-results.component';
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { SearchResultsComponent } from './search-results/search-results.componen
     AdminComponent,
     InfoProductComponent,
     Page404Component,
-    SearchResultsComponent
+    SearchResultsComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,

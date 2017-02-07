@@ -1,12 +1,3 @@
-<!--<ul class="nav nav-pills main-nav">-->
-    <!--<li>-->
-        <!--<a [routerLink] = "['shop']">Магазин</a>-->
-    <!--</li>-->
-    <!--<li>-->
-        <!--<a [routerLink] = "['admin']">Админка</a>-->
-    <!--</li>-->
-<!--</ul>-->
-
 <nav class="navbar navbar-default" style="padding: 10px 0;">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -29,14 +20,14 @@
 
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a href="#" style="background: #e7e7e7;">Корзина &nbsp;<span class="badge">4</span></a>
+                    <a [routerLink] = "['shop', 'cart']" href="#" style="background: #e7e7e7;">Корзина &nbsp;<span class="badge">{{dataService.cartCount}}</span></a>
                 </li>
             </ul>
 
             <!-- search -->
             <form class="navbar-form navbar-right">
                 <div class="form-group">
-                    <!-- TODO: сделать обработку на enter -->
+                    <!-- TODO: сделать привязку значения поля к роуту, чтобы после перехода на другой рут очищалось поле -->
                     <input #search type="search" class="form-control" placeholder="Search" (blur) = "getSearchValue(search.value)" (keydown) = "getSearchValueEnter($event, search.value)">
                 </div>
                 <button [routerLink] = "['shop', 'search']" [queryParams] = "{'productName': searchValue}" type="submit" class="btn btn-default">Submit</button>

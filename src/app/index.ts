@@ -16,6 +16,7 @@ export * from './info-product/info-product.component';
 export * from './admin/admin.component';
 export * from './search-results/search-results.component';
 export * from './page-404/page-404.component';
+export * from './cart/cart.component';
 
 
 

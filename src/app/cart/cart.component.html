@@ -1,0 +1,27 @@
+<div *ngFor="let item of dataService.cart" class="cart-row">
+    <div class="cart-row_img col-xs-2">
+        <img [src]="item.imgSrc" alt="">
+    </div>
+    <div class="col-xs-5">
+        {{item.name}}
+    </div>
+    <div class="cart-row_count col-xs-2">
+        <i class="glyphicon glyphicon-minus" (click)="minusCount(item.articul)"></i>
+        <input #price name="quantity" type="text" class="form-control cart-row_count-input" [maxlength]="3"
+               [(ngModel)]="item.count" (ngModelChange) = "onChangeInput(item)">
+        <i class="glyphicon glyphicon-plus" (click)="plusCount(item.articul)"></i>
+    </div>
+    <div class="cart-row_price col-xs-2">
+        {{item.price * item.count}}&nbsp;грн.
+    </div>
+    <div class="cart-row_delete col-xs-1">
+        <!-- TODO: кнопку удаления товара из корзины -->
+        del
+    </div>
+</div>
+<div *ngIf="dataService.cart != 0" class="cart-summary col-xs-12">
+    <button class="btn btn-default" style="float: left;">Продолжить покупки</button>
+
+    <button class="btn btn-primary" style="float: right;">Оформить заказ</button>
+    <p style="float: right;">Общая сумма к оплате: <span style="font-size: 20px;">{{dataService.cartSummaryPrice}}</span></p>
+</div>

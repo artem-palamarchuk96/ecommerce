@@ -6,7 +6,7 @@
     <div *ngFor="let product of products" class="col-xs-4 products-list_item">
         <div *ngIf="!product.filtered" class="products-list_item-inner">
             <a (click)="goToProductPage(product)" class="products-list_link">
-                <img class="products-list_img" src="{{product.imgSrc}}" alt="">
+                <img class="products-list_img" [src]="product.imgSrc" alt="">
                 <p>{{product.name}}</p>
             </a>
             <div class="products-list_code">
@@ -15,7 +15,7 @@
             <div class="products-list_price">
                 <span>{{product.price}}</span>&nbsp;грн
             </div>
-            <a class="btn btn-primary products-list_buy-btn"><i class="glyphicon glyphicon-shopping-cart"></i></a>
+            <a (click) = "addToCart(product)" class="btn btn-primary products-list_buy-btn"><i class="glyphicon glyphicon-shopping-cart"></i></a>
         </div>
     </div>
 </div>

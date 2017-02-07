@@ -1,5 +1,5 @@
 import { Component, OnInit} from '@angular/core';
-import { DataService } from './index';
+import { DataService, Product } from './index';
 import { Router } from '@angular/router'
 
 @Component({
@@ -19,6 +19,8 @@ export class AppComponent implements OnInit {
     }
 
     searchValue: string;
+    /* cart from service */
+    cartFromService: Product[] = this.dataService.cart;
 
     getSearchValue(value: string) {
         this.searchValue = value;

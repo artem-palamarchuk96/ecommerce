@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DataService, Product } from '../index';
 
 @Component({
@@ -9,7 +9,7 @@ import { DataService, Product } from '../index';
 })
 export class SearchResultsComponent implements OnInit {
 
-    constructor(private activatedRoute: ActivatedRoute, private dataService: DataService) {
+    constructor(private activatedRoute: ActivatedRoute, private dataService: DataService, private router: Router) {
     }
 
     searchedProducts: Product[];
@@ -22,6 +22,10 @@ export class SearchResultsComponent implements OnInit {
             });
             console.log(this.searchedProducts)
         })
+    }
+    /*TODO: вынести дублирующуюся функцию goToProductPage в компоненте ProductComponent в сервис */
+    goToProductPage(product: Product) {
+        this.router.navigate(['shop', 'product', product['articul']]);
     }
 
 }

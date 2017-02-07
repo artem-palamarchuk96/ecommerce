@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { CategoryComponent, SubcategoryComponent, ProductComponent, InfoProductComponent, AdminComponent, Page404Component, SearchResultsComponent } from './index';
+import { CategoryComponent, SubcategoryComponent, ProductComponent, InfoProductComponent, AdminComponent, Page404Component, SearchResultsComponent, CartComponent } from './index';
 
 
 
@@ -31,6 +31,10 @@ const routes:Routes = [
             {
                 path: 'search',
                 component: SearchResultsComponent
+            },
+            {
+                path: 'cart',
+                component: CartComponent
             }
         ]
     },
