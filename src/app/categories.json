@@ -1,0 +1,5 @@
+[
+  {"_id": "1", "name": "Бытовая техника", "alias": "household-appliances"},
+  {"_id": "1", "name": "Техника для кухни", "alias": "kitchen-appliances"},
+  {"_id": "3", "name": "Телевизоры и аудио", "alias": "tw-and-audio"}
+]

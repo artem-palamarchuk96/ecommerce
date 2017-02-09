@@ -1,11 +1,10 @@
 /* Classes */
-export * from './classes/category';
-export * from './classes/subcategory';
-export * from './classes/product';
-export * from './classes/producer';
+export * from './shared/classes/category';
+export * from './shared/classes/subcategory';
+export * from './shared/classes/product';
+export * from './shared/classes/producer';
 
 /* Services */
-export * from './services/data.service';
 
 /* Components */
 export * from './app.component';
@@ -17,6 +16,8 @@ export * from './admin/admin.component';
 export * from './search-results/search-results.component';
 export * from './page-404/page-404.component';
 export * from './cart/cart.component';
+
+
 
 
 

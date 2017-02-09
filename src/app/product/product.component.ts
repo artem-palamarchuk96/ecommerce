@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { Product } from '../index';
-import { DataService } from '../services/data.service';
+
+
+import { DataService, HttpService, Product } from '../shared/index';
 
 @Component({
     selector: 'app-product',
@@ -10,44 +11,33 @@ import { DataService } from '../services/data.service';
 })
 export class ProductComponent implements OnInit {
 
-    constructor(
-        private dataService: DataService,
-        private activatedRoute: ActivatedRoute,
-        private router: Router
-    ) {}
+    products:Product[] = [];
+    filteredProducts:Product[] = [];
 
-    products: Product[];
-    filtered: any;
-
-
-    ngOnInit() {
-        let that = this;
-        this.activatedRoute.params.forEach(function(params: Params) {
-            //console.log('Product route = ', params['subname'])
-            let subname = params['subname'];
-            if (subname) {
-                that.products = that.dataService.getProductsBySubcategory(subname);
-                that.filtered = that.products;
-                that.products = that.products.map(elem => Object.assign(elem, {filter: false}));
-                //console.log(that.products.map(elem => Object.assign(elem, {filter: false})))
-            }
-        })
+    constructor(private dataService:DataService,
+                private httpService:HttpService,
+                private activatedRoute:ActivatedRoute,
+                private router:Router) {
     }
 
-    goToProductPage(product: Product) {
+    ngOnInit() {
+        this.httpService.get('app/products.json').subscribe((data:any) => {
+            this.products = JSON.parse(data._body);
+
+            /* TODO: сделать первоначальный вывод по подкатегориям, вынести получение данных в сервис */
+            this.activatedRoute.params.forEach((params:Params) => {
+                this.filteredProducts = this.products.filter(elem => elem.subcategoryAlias == params["subcategory"]);
+            });
+        });
+    }
+
+    goToProductPage(product:Product) {
         this.router.navigate(['shop', 'product', product['articul']]);
     }
 
-    filterProducts(producer: string) {
-        this.products = this.filtered.filter(elem => elem.producer == producer);
-        //console.log(this.filtered);
-        //this.products = this.dataService.producerFilter(producer);
-    }
-
-
-    addToCart(product: Product) {
+    addToCart(product:Product) {
         if (!~this.dataService.cart.indexOf(product)) {
-            this.dataService.cart.push(Object.assign(product, {count: 1}) );
+            this.dataService.cart.push(Object.assign(product, {count: 1}));
         } else {
             for (let i = 0; i < this.dataService.cart.length; i++) {
                 if (this.dataService.cart[i].articul == product.articul) {
@@ -61,12 +51,6 @@ export class ProductComponent implements OnInit {
             this.dataService.cartCount += this.dataService.cart[i].count;
             this.dataService.cartSummaryPrice += this.dataService.cart[i].price;
         }
-        //console.log(this.dataService.cart, this.dataService.cartCount);
-    }
-
-    lol(producer: string) {
-        let filteredArr = this.filtered.filter(elem => elem.producer == producer);
-        this.products = filteredArr;
     }
 
 }

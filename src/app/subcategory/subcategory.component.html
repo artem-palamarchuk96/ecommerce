@@ -1,14 +1,9 @@
 <div class="row">
-    <div class="col-xs-2">
-        <ul class="nav nav-pills nav-stacked subcategory-list">
-            <li>Подкатегории <span class="badge" style="float: right;">{{subcategories.length}}</span></li>
-            <li *ngFor = "let subcategory of subcategories">
-                <a [routerLink] = "[subcategory.name]">{{subcategory.name}}</a>
-            </li>
-        </ul>
-
-    </div>
-    <div class="col-xs-10">
-        <router-outlet></router-outlet>
-    </div>
+    <ul class="nav nav-pills nav-stacked subcategory-list">
+        <li>Подкатегории <span class="badge" style="float: right;">{{filteredSubcategories.length}}</span></li>
+        <li *ngFor="let subcategory of filteredSubcategories">
+            <a (click)="goToRoute(subcategory)">{{subcategory?.name}}</a>
+        </li>
+    </ul>
 </div>
+

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from '../index';
+
+
+import { DataService } from '../shared/index';
 
 @Component({
     selector: 'app-cart',

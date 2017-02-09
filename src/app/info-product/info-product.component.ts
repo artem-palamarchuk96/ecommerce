@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { DataService, Product } from '../index';
+
+
+import { DataService, Product } from '../shared/index';
 
 @Component({
     selector: 'app-info-product',
@@ -15,11 +17,11 @@ export class InfoProductComponent implements OnInit {
     selectedProduct: Product;
 
     ngOnInit() {
-        let that = this;
-        this.activatedRoute.params.forEach((params: Params) => {
-            let articul = parseInt(params['articul']);
-            that.selectedProduct = that.dataService.getProduct(articul);
-        });
+        //let that = this;
+        //this.activatedRoute.params.forEach((params: Params) => {
+        //    let articul = parseInt(params['articul']);
+        //    that.selectedProduct = that.dataService.getProduct(articul);
+        //});
     }
 
 }

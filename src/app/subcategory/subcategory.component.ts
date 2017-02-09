@@ -1,7 +1,9 @@
 import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { ActivatedRoute, Params, Router, RouterState } from '@angular/router';
-import { DataService, ProductComponent, Subcategory, Product } from '../index';
-import {Runner} from "tslint/lib/runner";
+
+
+import { DataService, HttpService, Subcategory, Product } from '../shared/index';
+import { ProductComponent } from '../index';
 
 @Component({
     selector: 'app-subcategory',
@@ -10,26 +12,27 @@ import {Runner} from "tslint/lib/runner";
 })
 export class SubcategoryComponent implements OnInit {
 
+    subcategories:Subcategory[] = [];
+    filteredSubcategories:Subcategory[] = [];
+
     constructor(private dataService:DataService,
+                private httpService: HttpService,
                 private activatedRoute:ActivatedRoute,
                 private router:Router) {
     }
 
-    subcategories:Subcategory[];
-
-    productsOnPage:Product[];
-
     ngOnInit() {
-        let that = this;
-        this.activatedRoute.params.forEach((params:Params) => {
-            let category = params['name'];
-            that.subcategories = that.dataService.getSubcategoriesByCategory(category);
-        });
-        if (this.activatedRoute.children[0]) {
-            this.activatedRoute.children[0].params.forEach((params:Params) => {
-                //console.log('subcategory route =', params['subname'])
+        this.httpService.get('app/subcategories.json').subscribe((data:any) => {
+            this.subcategories = JSON.parse(data._body);
+
+            this.activatedRoute.params.forEach((params:Params) => {
+                this.filteredSubcategories = this.subcategories.filter((elem) => elem.categoryAlias == params["category"]);
             });
-        }
+        });
+    }
+
+    goToRoute(subcategory: any) {
+        this.router.navigate(['catalog', 'list', subcategory.categoryAlias, subcategory.alias])
     }
 
 }

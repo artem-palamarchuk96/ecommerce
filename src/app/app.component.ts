@@ -1,6 +1,8 @@
 import { Component, OnInit} from '@angular/core';
-import { DataService, Product } from './index';
-import { Router } from '@angular/router'
+import { Router } from '@angular/router';
+
+
+import { DataService, Product } from './shared/index';
 
 @Component({
     selector: 'app-root',
@@ -9,27 +11,22 @@ import { Router } from '@angular/router'
 })
 export class AppComponent implements OnInit {
 
+
+    /* cart from service */
+    cartFromService: Product[] = this.dataService.cart;
+
     constructor(
         private dataService: DataService,
         private router: Router
     ) {};
 
     ngOnInit() {
+
         //this.router.navigate(['category', this.dataService.categories[0].name, this.dataService.subcategories[0].name]);
     }
 
-    searchValue: string;
-    /* cart from service */
-    cartFromService: Product[] = this.dataService.cart;
 
-    getSearchValue(value: string) {
-        this.searchValue = value;
-    }
 
-    getSearchValueEnter(event: any, value: string) {
-        if (event.keyCode == 13) {
-            this.searchValue = value;
-        }
-    }
+
 
 }

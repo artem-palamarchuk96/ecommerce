@@ -1,0 +1,32 @@
+[
+  {"_id": "1", "name": "INDESIT LI7 S1 W", "articul": 6252677, "price": 7999, "subcategoryAlias": "fridges", "producer": "Indesit", "imgSrc": "http://www.foxtrot.com.ua/files/MediumImages/6252677/0.jpg"},
+  {"_id": "2", "name": "SAMSUNG RB37J5100SA/UA", "articul": 6320980, "price": 14999, "subcategoryAlias": "fridges", "producer": "Samsung", "imgSrc": "http://www.foxtrot.com.ua/files/MediumImages/6320980/0.jpg"},
+  {"_id": "3", "name": "ATLANT XM 6325-101", "articul": 6107888, "price": 9199, "subcategoryAlias": "fridges", "producer": "ATLANT", "imgSrc": "http://www.foxtrot.com.ua/files/MediumImages/6107888/0.jpg"},
+  {"_id": "4", "name": "INDESIT DF 4181 X", "articul": 6251947, "price": 10199, "subcategoryAlias": "fridges", "producer": "Indesit", "imgSrc": "http://www.foxtrot.com.ua/files/MediumImages/6251947/0.jpg"},
+  {"_id": "5", "name": "LG GA-B419SEQL", "articul": 6235473, "price": 14899, "subcategoryAlias": "fridges", "producer": "LG", "imgSrc": "http://www.foxtrot.com.ua/files/MediumImages/6235473/0.jpg"},
+  {"_id": "6", "name": "WHIRLPOOL BSNF 8121 OX", "articul": 6230683, "price": 12599, "subcategoryAlias": "fridges", "producer": "WhirlPool", "imgSrc": "http://www.foxtrot.com.ua/files/MediumImages/6230683/0.jpg"},
+  {"_id": "7", "name": "ATLANT ХМ-4725-101", "articul": 6282208, "price": 8333, "subcategoryAlias": "fridges", "producer": "ATLANT", "imgSrc": "http://www.foxtrot.com.ua/files/MediumImages/6282208/0.jpg"},
+  {"_id": "8", "name": "WHIRLPOOL BSNF 9152 W", "articul": 6234383, "price": 13699, "subcategoryAlias": "fridges", "producer": "WhirlPool", "imgSrc": "http://www.foxtrot.com.ua/files/MediumImages/6234383/0.jpg"},
+  {"_id": "9", "name": "SAMSUNG RSA1SHVB1/BWT", "articul": 6055622, "price": 25699, "subcategoryAlias": "fridges", "producer": "Samsung", "imgSrc": "http://www.foxtrot.com.ua/files/MediumImages/6055622/0.jpg"},
+  {"_id": "10", "name": "GORENJE RK 6191 BW", "articul": 6040017, "price": 9999, "subcategoryAlias": "fridges", "producer": "Gorenje", "imgSrc": "http://www.foxtrot.com.ua/files/MediumImages/6040017/0.jpg"},
+
+  {"_id": "11", "name": "HANSA FCMW58077", "articul": 6203908, "price": 6799, "subcategoryAlias": "stoves", "producer": "Hansa", "imgSrc": "http://www.foxtrot.com.ua/files/MediumImages/6203908/0.jpg"},
+  {"_id": "12", "name": "BEKO CSE 52110 GW", "articul": 6038396, "price": 6199, "subcategoryAlias": "stoves", "producer": "Beko", "imgSrc": "http://www.foxtrot.com.ua/files/MediumImages/6038396/0.jpg"},
+  {"_id": "13", "name": "HANSA FCMW68020", "articul": 6061715, "price": 7779, "subcategoryAlias": "stoves", "producer": "Hansa", "imgSrc": "http://www.foxtrot.com.ua/files/MediumImages/6061715/0.jpg"},
+
+  {"_id": "14", "name": "PHILIPS HD4731/03", "articul": 6282083, "price": 2749, "subcategoryAlias": "multicookers", "producer": "Philips", "imgSrc": "http://www.foxtrot.com.ua/files/MediumImages/6282083/0.jpg"},
+  {"_id": "16", "name": "DELFA DMC-10", "articul": 6164261, "price": 599, "subcategoryAlias": "multicookers", "producer": "Delfa", "imgSrc": "http://www.foxtrot.com.ua/files/MediumImages/6164261/0.jpg"},
+  {"_id": "17", "name": "MOULINEX CE7011", "articul": 5983773, "price": 5199, "subcategoryAlias": "multicookers", "producer": "Moulinex", "imgSrc": "http://www.foxtrot.com.ua/files/MediumImages/5983773/0.jpg"},
+
+  {"_id": "18", "name": "MOULINEX DD726010", "articul": 6228971, "price": 1111, "subcategoryAlias": "blenders", "producer": "Moulinex", "imgSrc": "http://www.foxtrot.com.ua/files/MediumImages/6228971/0.jpg"},
+  {"_id": "19", "name": "SATURN ST-FP9063", "articul": 6300333, "price": 929, "subcategoryAlias": "blenders", "producer": "Saturn", "imgSrc": "http://www.foxtrot.com.ua/files/MediumImages/6300333/0.jpg"},
+  {"_id": "20", "name": "PHILIPS HR1673/90", "articul": 6215432, "price": 2199, "subcategoryAlias": "blenders", "producer": "Philips", "imgSrc": "http://www.foxtrot.com.ua/files/MediumImages/6215432/0.jpg"},
+
+  {"_id": "21", "name": "SAMSUNG UE32J5200AKXUA", "articul": 6231245, "price": 9999, "subcategoryAlias": "tvs", "producer": "Samsung", "imgSrc": "http://www.foxtrot.com.ua/files/MediumImages/6231245/0.jpg"},
+  {"_id": "22", "name": "BRAVIS LED-42D2050 Smart +T2", "articul": 6296787, "price": 10999, "subcategoryAlias": "tvs", "producer": "Bravis", "imgSrc": "http://www.foxtrot.com.ua/files/MediumImages/6296787/0.jpg"},
+  {"_id": "23", "name": "LG 43LH570V", "articul": 6300139, "price": 15499, "subcategoryAlias": "tvs", "producer": "LG", "imgSrc": "http://www.foxtrot.com.ua/files/MediumImages/6300139/0.jpg"},
+
+  {"_id": "24", "name": "PANASONIC RP-HJE125E-P", "articul": 6040397, "price": 219, "subcategoryAlias": "headphones", "producer": "Panasonic", "imgSrc": "http://www.foxtrot.com.ua/files/MediumImages/6040397/0.jpg"},
+  {"_id": "25", "name": "PHILIPS SHE3590BK/10", "articul": 5952381, "price": 199, "subcategoryAlias": "headphones", "producer": "Philips", "imgSrc": "http://www.foxtrot.com.ua/files/MediumImages/5952381/0.jpg"},
+  {"_id": "26", "name": "SENNHEISER PX 100-II White", "articul": 5796237, "price": 1519, "subcategoryAlias": "headphones", "producer": "Sennheiser", "imgSrc": "http://www.foxtrot.com.ua/files/MediumImages/5796237/0.jpg"}
+]

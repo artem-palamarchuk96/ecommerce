@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from '../index';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, Params } from '@angular/router';
+
+
+import { DataService, HttpService, Category } from '../shared/index';
+
 
 @Component({
     selector: 'app-category',
@@ -9,13 +12,32 @@ import { Router } from '@angular/router';
 })
 export class CategoryComponent implements OnInit {
 
-    constructor(
-        private dataService:DataService,
-        private router:Router
-    ) {}
+    categories: Category[] = [];
+
+    constructor(private dataService:DataService,
+                private httpService:HttpService,
+                private router:Router,
+                private activatedRoute:ActivatedRoute) {
+    }
 
     ngOnInit() {
-        //this.router.navigate(['category', this.dataService.categories[0].name, this.dataService.subcategories[0].name]);
+        this.httpService.get('app/categories.json').subscribe((data:any) => {
+            this.categories = JSON.parse(data._body);
+
+            this.activatedRoute.params.forEach((params: Params) => {
+                /* TODO: сделать перенаправление */
+                if (!params["category"]) {
+                    for (let i = 0; i < this.categories.length; i++) {
+                       if (this.categories[i].alias == params["category"]) this.router.navigate(['catalog', 'list', this.categories[0].alias]);
+                    }
+                }
+            })
+        });
+    }
+
+    goToRoute(categoryAlias:any) {
+        this.router.navigate(['catalog', 'list', categoryAlias]);
+        //console.log(categoryName)
     }
 
 }

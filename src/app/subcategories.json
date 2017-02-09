@@ -1,0 +1,8 @@
+[
+    {"_id": "1", "name": "Холодильники", "categoryAlias": "household-appliances", "alias": "fridges"},
+    {"_id": "2", "name": "Плиты", "categoryAlias": "household-appliances", "alias": "stoves"},
+    {"_id": "3", "name": "Мультиварки", "categoryAlias": "kitchen-appliances", "alias": "multicookers"},
+    {"_id": "4", "name": "Блендеры", "categoryAlias": "kitchen-appliances", "alias": "blenders"},
+    {"_id": "5", "name": "Телевизоры", "categoryAlias": "tw-and-audio", "alias": "tvs"},
+    {"_id": "6", "name": "Наушники", "categoryAlias": "tw-and-audio", "alias": "headphones"}
+]

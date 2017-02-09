@@ -1,0 +1,11 @@
+<div class="row">
+    <ul class="filters-list">
+        <li>Фильтры</li>
+        <li class="filters-list_producers filters-list_producers-title">Производитель</li>
+        <li *ngFor="let producer of dataService.producers" class="filters-list_producers">
+            <label>
+                <input type="radio" name="radioProducers" (change)="lol(producer.name)">{{producer.name}}
+            </label>
+        </li>
+    </ul>
+</div>

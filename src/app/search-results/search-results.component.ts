@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { DataService, Product } from '../index';
+import { ActivatedRoute, Router, Params } from '@angular/router';
+
+
+import { DataService, HttpService, Product } from '../shared/index';
 
 @Component({
     selector: 'app-search-results',
@@ -9,22 +11,33 @@ import { DataService, Product } from '../index';
 })
 export class SearchResultsComponent implements OnInit {
 
-    constructor(private activatedRoute: ActivatedRoute, private dataService: DataService, private router: Router) {
+    products: Product[] = [];
+    searchedProducts:Product[] = [];
+
+    constructor(private activatedRoute:ActivatedRoute,
+                private dataService:DataService,
+                private httpService:HttpService,
+                private router:Router) {
     }
 
-    searchedProducts: Product[];
+
 
     ngOnInit() {
-        this.activatedRoute.queryParams.forEach((queryParams: any) => {
-            console.log(queryParams);
-            this.searchedProducts = this.dataService.products.filter(elem => {
-                if (~elem.name.toLowerCase().indexOf(queryParams['productName'])) return elem;
-            });
-            console.log(this.searchedProducts)
-        })
+        this.httpService.get('app/products.json').subscribe((data:any) => {
+            this.products = JSON.parse(data._body);
+
+            this.activatedRoute.queryParams.forEach((queryParams:any) => {
+                console.log('params = ',queryParams);
+                this.searchedProducts = this.products.filter(elem => {
+                    if (~elem.name.toLowerCase().indexOf(queryParams['searched'])) return elem;
+                });
+                console.log(this.searchedProducts)
+            })
+        });
     }
+
     /*TODO: вынести дублирующуюся функцию goToProductPage в компоненте ProductComponent в сервис */
-    goToProductPage(product: Product) {
+    goToProductPage(product:Product) {
         this.router.navigate(['shop', 'product', product['articul']]);
     }
 

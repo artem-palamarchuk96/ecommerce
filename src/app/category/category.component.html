@@ -1,7 +1,9 @@
 <ul class="nav nav-pills category-list">
-  <li *ngFor = "let category of dataService.categories" role="presentation">
-    <!-- TODO: починить данный роутинг, сделать при загрузке сразу страницу 1ой категории и подкатегории (с товарами!!!) -->
-    <a [routerLink] = "['category', category.name, 'empty']" routerLinkActive="active" class="category-btn">{{category.name}}</a>
-  </li>
+    <li *ngFor="let category of categories" role="presentation">
+        <!-- TODO: починить данный роутинг, сделать при загрузке сразу страницу 1ой категории и подкатегории (с товарами!!!) -->
+        <a (click) = "goToRoute(category.alias)" class="category-btn">{{category.name}}</a>
+    </li>
 </ul>
-<router-outlet></router-outlet>
+<app-subcategory class="col-xs-2"></app-subcategory>
+<app-product class="col-xs-8"></app-product>
+<app-filters class="col-xs-2"></app-filters>
