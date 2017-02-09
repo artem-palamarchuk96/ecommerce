@@ -22,7 +22,7 @@ export class SubcategoryComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.httpService.get('app/subcategories.json').subscribe((data:any) => {
+        this.httpService.get('app/data/subcategories.json').subscribe((data:any) => {
             this.subcategories = JSON.parse(data._body);
 
             this.activatedRoute.params.forEach((params:Params) => {

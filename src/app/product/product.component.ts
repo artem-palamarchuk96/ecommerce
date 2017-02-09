@@ -21,12 +21,17 @@ export class ProductComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.httpService.get('app/products.json').subscribe((data:any) => {
+        this.httpService.get('app/data/products.json').subscribe((data:any) => {
             this.products = JSON.parse(data._body);
 
-            /* TODO: сделать первоначальный вывод по подкатегориям, вынести получение данных в сервис */
+            this.dataService.products = JSON.parse(data._body);
+
             this.activatedRoute.params.forEach((params:Params) => {
-                this.filteredProducts = this.products.filter(elem => elem.subcategoryAlias == params["subcategory"]);
+                this.dataService.filteredProducts = this.products.filter(elem => elem.subcategoryAlias == params["subcategory"]);
+                for (let i = 0; i < this.dataService.products.length; i++) {
+                    this.dataService.products[i] = Object.assign(this.dataService.products[i], {filter: false})
+                }
+                //console.log(this.dataService.filteredProducts)
             });
         });
     }
@@ -49,7 +54,7 @@ export class ProductComponent implements OnInit {
         this.dataService.cartSummaryPrice = 0;
         for (let i = 0; i < this.dataService.cart.length; i++) {
             this.dataService.cartCount += this.dataService.cart[i].count;
-            this.dataService.cartSummaryPrice += this.dataService.cart[i].price;
+            this.dataService.cartSummaryPrice += this.dataService.cart[i].price * this.dataService.cart[i].count;
         }
     }
 

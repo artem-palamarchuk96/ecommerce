@@ -21,7 +21,7 @@ export class CategoryComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.httpService.get('app/categories.json').subscribe((data:any) => {
+        this.httpService.get('app/data/categories.json').subscribe((data:any) => {
             this.categories = JSON.parse(data._body);
 
             this.activatedRoute.params.forEach((params: Params) => {

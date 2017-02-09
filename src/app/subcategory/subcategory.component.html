@@ -4,6 +4,11 @@
         <li *ngFor="let subcategory of filteredSubcategories">
             <a (click)="goToRoute(subcategory)">{{subcategory?.name}}</a>
         </li>
+        <ng-container *ngIf = "filteredSubcategories.length == 0">
+            <li *ngFor="let subcategory of subcategories">
+                <a (click)="goToRoute(subcategory)">{{subcategory?.name}}</a>
+            </li>
+        </ng-container>
     </ul>
 </div>
 

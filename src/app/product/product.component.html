@@ -1,41 +1,113 @@
 <div class="row">
     <div class="products-list">
-        <div *ngIf="filteredProducts.length == 0">
-            <div *ngFor="let product of products" class="col-xs-4 products-list_item">
-                <div class="products-list_item-inner">
-                    <a (click)="goToProductPage(product)" class="products-list_link">
-                        <img class="products-list_img" [src]="product.imgSrc" alt="">
-                        <p>{{product.name}}</p>
-                    </a>
-                    <div class="products-list_code">
-                        Код:&nbsp;<span>{{product.articul}}</span>
+
+        <ng-container *ngIf="dataService.filteredByProd.length == 0 && dataService.paramSubcategory == ''">
+            <div *ngFor="let product of dataService.products">
+                <div class="col-xs-4 products-list_item">
+                    <div class="products-list_item-inner">
+                        <a (click)="goToProductPage(product)" class="products-list_link">
+                            <img class="products-list_img" [src]="product.imgSrc" alt="">
+                            <p>{{product.name}}</p>
+                        </a>
+                        <div class="products-list_code">
+                            Код:&nbsp;<span>{{product.articul}}</span>
+                        </div>
+                        <div class="products-list_price">
+                            <span>{{product.price}}</span>&nbsp;грн
+                        </div>
+                        <a (click)="addToCart(product)" class="btn btn-primary products-list_buy-btn">
+                            <i class="glyphicon glyphicon-shopping-cart"></i>
+                        </a>
                     </div>
-                    <div class="products-list_price">
-                        <span>{{product.price}}</span>&nbsp;грн
-                    </div>
-                    <a (click)="addToCart(product)" class="btn btn-primary products-list_buy-btn">
-                        <i class="glyphicon glyphicon-shopping-cart"></i>
-                    </a>
                 </div>
             </div>
-        </div>
-        <div *ngFor="let product of filteredProducts" class="col-xs-4 products-list_item">
-            <div class="products-list_item-inner">
-                <a (click)="goToProductPage(product)" class="products-list_link">
-                    <img class="products-list_img" [src]="product.imgSrc" alt="">
-                    <p>{{product.name}}</p>
-                </a>
-                <div class="products-list_code">
-                    Код:&nbsp;<span>{{product.articul}}</span>
+        </ng-container>
+        <ng-container *ngIf="dataService.filteredByProd.length != 0 && dataService.paramSubcategory == ''">
+            <div *ngFor="let product of dataService.filteredByProd">
+                <div class="col-xs-4 products-list_item">
+                    <div class="products-list_item-inner">
+                        <a (click)="goToProductPage(product)" class="products-list_link">
+                            <img class="products-list_img" [src]="product.imgSrc" alt="">
+                            <p>{{product.name}}</p>
+                        </a>
+                        <div class="products-list_code">
+                            Код:&nbsp;<span>{{product.articul}}</span>
+                        </div>
+                        <div class="products-list_price">
+                            <span>{{product.price}}</span>&nbsp;грн
+                        </div>
+                        <a (click)="addToCart(product)" class="btn btn-primary products-list_buy-btn">
+                            <i class="glyphicon glyphicon-shopping-cart"></i>
+                        </a>
+                    </div>
                 </div>
-                <div class="products-list_price">
-                    <span>{{product.price}}</span>&nbsp;грн
-                </div>
-                <a (click)="addToCart(product)" class="btn btn-primary products-list_buy-btn">
-                    <i class="glyphicon glyphicon-shopping-cart"></i>
-                </a>
             </div>
-        </div>
+        </ng-container>
+        <ng-container *ngIf="dataService.filteredByProd.length == 0 && dataService.paramSubcategory != ''">
+            <div *ngFor="let product of dataService.filteredProducts; let i = index">
+                <div class="col-xs-4 products-list_item">
+                    <div class="products-list_item-inner">
+                        <a (click)="goToProductPage(product)" class="products-list_link">
+                            <img class="products-list_img" [src]="product.imgSrc" alt="">
+                            <p>{{product.name}}</p>
+                        </a>
+                        <div class="products-list_code">
+                            Код:&nbsp;<span>{{product.articul}}</span>
+                        </div>
+                        <div class="products-list_price">
+                            <span>{{product.price}}</span>&nbsp;грн
+                        </div>
+                        <a (click)="addToCart(product)" class="btn btn-primary products-list_buy-btn">
+                            <i class="glyphicon glyphicon-shopping-cart"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+        <ng-container *ngIf="dataService.filteredByProd.length != 0 && dataService.paramSubcategory != ''">
+            <ng-container *ngFor="let product of dataService.filteredByProd">
+                <div *ngIf = "product.subcategoryAlias == dataService.paramSubcategory">
+                    <div class="col-xs-4 products-list_item">
+                        <div class="products-list_item-inner">
+                            <a (click)="goToProductPage(product)" class="products-list_link">
+                                <img class="products-list_img" [src]="product.imgSrc" alt="">
+                                <p>{{product.name}}</p>
+                            </a>
+                            <div class="products-list_code">
+                                Код:&nbsp;<span>{{product.articul}}</span>
+                            </div>
+                            <div class="products-list_price">
+                                <span>{{product.price}}</span>&nbsp;грн
+                            </div>
+                            <a (click)="addToCart(product)" class="btn btn-primary products-list_buy-btn">
+                                <i class="glyphicon glyphicon-shopping-cart"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+        </ng-container>
+
+
+        <!--<ng-container *ngFor="let product of dataService.filteredProducts">-->
+        <!--<div *ngIf="product.filter" class="col-xs-4 products-list_item">-->
+        <!--<div class="products-list_item-inner">-->
+        <!--<a (click)="goToProductPage(product)" class="products-list_link">-->
+        <!--<img class="products-list_img" [src]="product.imgSrc" alt="">-->
+        <!--<p>{{product.name}}</p>-->
+        <!--</a>-->
+        <!--<div class="products-list_code">-->
+        <!--Код:&nbsp;<span>{{product.articul}}</span>-->
+        <!--</div>-->
+        <!--<div class="products-list_price">-->
+        <!--<span>{{product.price}}</span>&nbsp;грн-->
+        <!--</div>-->
+        <!--<a (click)="addToCart(product)" class="btn btn-primary products-list_buy-btn">-->
+        <!--<i class="glyphicon glyphicon-shopping-cart"></i>-->
+        <!--</a>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--</ng-container>-->
     </div>
 </div>
 
