@@ -23,7 +23,7 @@ export class SearchResultsComponent implements OnInit {
 
 
     ngOnInit() {
-        this.httpService.get('app/products.json').subscribe((data:any) => {
+        this.httpService.get('app/data/products.json').subscribe((data:any) => {
             this.products = JSON.parse(data._body);
 
             this.activatedRoute.queryParams.forEach((queryParams:any) => {

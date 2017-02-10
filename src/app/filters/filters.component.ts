@@ -31,11 +31,27 @@ export class FiltersComponent implements OnInit {
                     this.dataService.paramSubcategory = '';
                 }
             });
-            //for (let i = 0; i < this.dataService.filteredProducers.length; i++) {
-            //    this.dataService.filteredProducers[i] = Object.assign(this.dataService.filteredProducers[i], {filter: false})
-            //}
-            //console.log(this.dataService.filteredProducers)
+        });
+        this.httpService.get('app/data/price.json').subscribe((response: any) => {
+            this.dataService.prices = JSON.parse(response._body);
+
+            for (let i = 0; i < this.dataService.prices.length; i++) {
+                this.dataService.prices[i] = Object.assign(this.dataService.prices[i], {filter: false});
+            }
+            console.log(this.dataService.prices)
         })
+    }
+
+    selectPrice(start: any, end: any, value: any) {
+        console.log(start, end, value);
+        for (let i = 0; i < this.dataService.products.length; i++) {
+            if (this.dataService.products[i]["price"] > start && this.dataService.products[i]["price"] < end) {
+                let lol = this.dataService.filteredByProd.filter(elem => {
+                    return elem["price"] > start &&  elem["price"] < end;
+                });
+                console.log('filtered', lol)
+            }
+        }
     }
 
     showIt(text: string, value: any) {
@@ -46,11 +62,13 @@ export class FiltersComponent implements OnInit {
                         if (this.dataService.products[i]["filter"] == false) {
                             this.dataService.products[i]["filter"] = true;
                             this.dataService.filteredByProd.push(this.dataService.products[i]);
-                            console.log('true')
                         } else {
                             this.dataService.products[i]["filter"] = false;
-                            this.dataService.filteredByProd.pop();
-                            console.log('false')
+                            //console.log('need delete = ', this.dataService.products[i], i)
+                            this.dataService.filteredByProd = this.dataService.filteredByProd.filter(elem => {
+                                return this.dataService.products[i]["producer"] != elem["producer"];
+                            });
+                            //console.log(this.dataService.filteredByProd)
                         }
                     }
                 }

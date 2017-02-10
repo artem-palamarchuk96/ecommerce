@@ -32,6 +32,11 @@ export class SubcategoryComponent implements OnInit {
     }
 
     goToRoute(subcategory: any) {
+        for (let i = 0; i < this.dataService.filteredProducers.length; i++) {
+            this.dataService.filteredProducers[i]["filter"] = false;
+        }
+        this.dataService.filteredByProd = [];
+        console.log(this.dataService.filteredProducers);
         this.router.navigate(['catalog', 'list', subcategory.categoryAlias, subcategory.alias])
     }
 

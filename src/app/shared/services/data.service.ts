@@ -20,6 +20,8 @@ export class DataService {
 
     filteredProducers: Producer[] = [];
 
+    prices: any;
+
     constructor(private router: Router) {
     }
 }

@@ -44,7 +44,7 @@
             </div>
         </ng-container>
         <ng-container *ngIf="dataService.filteredByProd.length == 0 && dataService.paramSubcategory != ''">
-            <div *ngFor="let product of dataService.filteredProducts; let i = index">
+            <div *ngFor="let product of dataService.filteredProducts">
                 <div class="col-xs-4 products-list_item">
                     <div class="products-list_item-inner">
                         <a (click)="goToProductPage(product)" class="products-list_link">

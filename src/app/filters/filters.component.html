@@ -4,8 +4,13 @@
         <li class="filters-list_producers filters-list_producers-title">Производитель</li>
         <li *ngFor="let producer of dataService.filteredProducers" class="filters-list_producers">
             <label #label>
-                <input #check type="checkbox" [(ngModel)] = "producer.filter" (change) = "showIt()" (ngModelChange) = "showIt(label.textContent, check.checked)">{{producer.name}}
+                <input #check type="checkbox" [(ngModel)] = "producer.filter" (ngModelChange) = "showIt(label.textContent, check.checked)">{{producer.name}}
             </label>
+        </li>
+        <li class="filters-list_producers filters-list_producers-title">Цена</li>
+        <li *ngFor = "let price of dataService.prices" class="filters-list_producers">
+            <input #checkPrice type="checkbox" [(ngModel)] = "price.filter" (ngModelChange) = "selectPrice(start.textContent, end.textContent, checkPrice.checked)">
+            <span #start class="start-price">{{price.start}}</span> - <span #end class="end-price">{{price.end}}</span>
         </li>
     </ul>
 </div>
