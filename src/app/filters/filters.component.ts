@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 
 
-import { DataService, HttpService, Producer } from '../shared/index';
+import { DataService, HttpService, Producer, MessangerService } from '../shared/index';
 
 @Component({
     selector: 'app-filters',
@@ -17,7 +17,8 @@ export class FiltersComponent implements OnInit {
     constructor(private dataService:DataService,
                 private httpService:HttpService,
                 private router:Router,
-                private activatedRoute:ActivatedRoute) {
+                private activatedRoute:ActivatedRoute,
+                private messageService: MessangerService) {
     }
 
     ngOnInit() {
@@ -54,6 +55,8 @@ export class FiltersComponent implements OnInit {
         }
     }
 
+
+
     showIt(text: string, value: any) {
         if (text) {
             for (let i = 0; i < this.dataService.products.length; i++) {
@@ -75,6 +78,8 @@ export class FiltersComponent implements OnInit {
             }
 
         }
+
+        this.messageService.send('filter_id', {name: 'Vasya', age: 23});
     }
 
 
